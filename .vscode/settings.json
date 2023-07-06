@@ -1,0 +1,6 @@
+{
+    "html.format.templating": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingTemplateStringBraces": false,
+    "editor.snippets.codeActions.enabled": false
+}
