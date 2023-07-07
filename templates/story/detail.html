@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ content.title }}</title>
+</head>
+<body>
+    {% include 'mixin/contents/content.html' %}
+    {% comment %} {{ form.as_p }} {% endcomment %}
+    {% comment %} <a href="{% url 'home'%}">뒤로가기....</a> {% endcomment %}
+    <a href="{% url 'story:home' %}"><b>뒤로가기</b></a>
+</body>
+</html>

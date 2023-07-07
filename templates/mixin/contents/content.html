@@ -1,0 +1,28 @@
+<div class = 'card'>
+    <div class = 'card_header'>
+        <img src="http://via.placeholder.com/32x32" alt="프로필 이미지">
+        <a href="">
+            <a href="{% url 'story:detail' content.id %}">{{ content.title }}&nbsp&nbsp</span></a>
+        </a>
+        <a href="">
+            <a href=""><span class = 'user_name'>{{ content.writer }}</span></a>
+        </a>
+        {{ content.created_at | date:"Y년 m월 d일" }} 
+
+        {% if request.user == content.writer %}
+            <a href="{% url 'story:update' content.id %}">수정하기</a>
+            <a href="{% url 'story:delete' content.id %}">삭제하기</a>
+        {% endif %}
+    </div>
+    <div class = 'card_content'>
+        {% if content.image %}
+            <img class = "card_img" src="{{ content.image.url }}" alt="이미지"><bR>
+            {{ content.content }}
+        {% else %}
+            <img src="http://via.placeholder.com/600x600" alt="이미지"><br>
+            {{ content.content }}
+        {% endif %}
+    </div>
+</div>
+
+

@@ -18,7 +18,7 @@ def signup(request):
         
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('account:login')
         else:
             return redirect('account:signup')
 
@@ -32,6 +32,6 @@ def login_view(request):
         form = AuthenticationForm(request,data=request.POST)
         if form.is_valid():
             login(request,form.user_cache)
-            return redirect('index')
+            return redirect('story:home')
         else:
             return render(request,'account/login.html',{'form':form})        

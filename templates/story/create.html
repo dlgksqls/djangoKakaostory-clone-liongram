@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시글 생성</title>
+</head>
+<body>
+    <h1>게시글 생성</h1>
+    <form action="{% url 'story:create' %}" method='POST' enctype="multipart/form-data">
+        <div>
+            {% csrf_token %}
+            <div>
+                <b>제목</b><textarea name="title" id="" cols="22" rows="1"></textarea><br>
+                <label for="image">이미지</label>
+                {% if content.image %}
+                    <p>현재 : <a href="{{ content.image.url }}">{{ content.image.name }}</a></p>
+                    <p>변경 : <input type="file" name='image' accpte='image/*' id='id_image'></p>
+                    {% comment %} <img src="{{ content.image.url }}" alt="image"> {% endcomment %}
+                {% else %}
+                    <input type="file" name='image' accpte='image/*' id='id_image'>
+                {% endif %}<br>
+            </div>
+            <div>
+                당신의 소식을 전해보세요! 
+                <textarea name="content" id="" cols="30" rows="10">
+                {% if content.content %}
+                    {{ content.content }}
+                {% endif %}
+                </textarea>
+            </div>
+        </div>
+        <div><input type="submit"></div>
+    </form>
+</body>
+</html>
